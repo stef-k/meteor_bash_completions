@@ -17,7 +17,7 @@ $meteor command [TAB]
 ```
 ## Installation:
 
-Put it somewhere accessible for your user, for this exapmle we assume 
+Put it somewhere accessible for your user, for this example we assume 
 the directory `/home/myuser/meteor.bash`, in your `.bash_profile` or
 `.bashrc` paste the following:
 
