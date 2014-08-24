@@ -16,7 +16,11 @@ $meteor [TAB]
 $meteor command [TAB]
 ```
 
-Now the completion supports all packages from the package list, to test it type in terminal:
+### Package management
+
+#### Add package
+
+The completion supports all packages from the package list, to test it type in terminal:
 
 ```bash
 $meteor add accounts[TAB]
@@ -31,6 +35,15 @@ $meteor add accounts-p
 ```
 
 The above command will auto-complete the `accounts-password` in terminal.
+
+
+#### Remove package
+
+```bash
+$meteor remove[TAB]
+```
+
+The above command will list all the installed packages.
 
 ## Installation:
 

@@ -45,7 +45,7 @@ _meteor()
     case "${prev}" in
         help )
             args=$(for word in $help_lookup;do echo "$word";done)
-            COMPREPLY=( $(compgen -W "${args}" "${cur}") )
+            COMPREPLY=( $(compgen -W "${args}" -- "${cur}") )
             return 0
             ;;
         run )
@@ -54,7 +54,7 @@ _meteor()
             return 0
             ;;
         create )
-            COMPREPLY=( $(compgen -W "--example --list" "${cur}") )
+            COMPREPLY=( $(compgen -W "--example --list" -- "${cur}") )
             return 0
             ;;
         deploy )
@@ -63,24 +63,25 @@ _meteor()
             return 0
             ;;
         logs )
-            COMPREPLY=( $(compgen -W "" "${cur}") )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
             return 0
             ;;
         update )
-            COMPREPLY=( $(compgen -W "--release" "${cur}") )
+            COMPREPLY=( $(compgen -W "--release" -- "${cur}") )
             return 0
             ;;
         add )
             pgs=$(meteor list)
-            COMPREPLY=( $(compgen -W "${pgs}" "${cur}") )
+            COMPREPLY=( $(compgen -W "${pgs}" -- "${cur}") )
             return 0
             ;;
         remove )
-            COMPREPLY=( $(compgen -W "" "${cur}") )
+            pgs=$(meteor list --using)
+            COMPREPLY=( $(compgen -W "${pgs}" -- "${cur}") )
             return 0
             ;;
         list )
-            COMPREPLY=( $(compgen -W "--using" "${cur}") )
+            COMPREPLY=( $(compgen -W "--using" -- "${cur}") )
             return 0
             ;;
         mongo )
@@ -88,7 +89,7 @@ _meteor()
             return 0
             ;;
         reset )
-            COMPREPLY=( $(compgen -W "" "${cur}") )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
             return 0
             ;;
         bundle )
