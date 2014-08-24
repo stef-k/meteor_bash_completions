@@ -44,7 +44,7 @@ _meteor()
 
     case "${prev}" in
         help )
-            args=$(for word in $help_lookup;do echo $word;done)
+            args=$(for word in $help_lookup;do echo "$word";done)
             COMPREPLY=( $(compgen -W "${args}" "${cur}") )
             return 0
             ;;
@@ -71,7 +71,8 @@ _meteor()
             return 0
             ;;
         add )
-            COMPREPLY=( $(compgen -W "" "${cur}") )
+            pgs=$(meteor list)
+            COMPREPLY=( $(compgen -W "${pgs}" "${cur}") )
             return 0
             ;;
         remove )
@@ -96,7 +97,7 @@ _meteor()
             ;;
     esac
 
-    COMPREPLY=($(compgen -W "${commands}" -- ${cur}))
+    COMPREPLY=($(compgen -W "${commands}" -- "${cur}"))
     return 0
 }
 

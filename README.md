@@ -15,6 +15,23 @@ $meteor [TAB]
 ```bash
 $meteor command [TAB]
 ```
+
+Now the completion supports all packages from the package list, to test it type in terminal:
+
+```bash
+$meteor add accounts[TAB]
+```
+
+The above command will print all accounts related packages.
+
+OR
+
+```bash
+$meteor add accounts-p
+```
+
+The above command will auto-complete the `accounts-password` in terminal.
+
 ## Installation:
 
 Put it somewhere accessible for your user, for this exapmle we assume 
