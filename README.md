@@ -5,6 +5,10 @@ applications. See [http://meteor.com](http://meteor.com)
 
 This bash file provides bash completions for the meteor command line tool.
 
+## Version:
+
+Updated for Meteor `0.9.0.1`
+
 ## Usage:
 
 ```bash
@@ -80,3 +84,8 @@ Additionaly on Ubuntu systems you can put this file at `/etc/bash_completion.d/`
 * whoami
 * test-packages
 * list-sites
+* search
+* show
+* publish
+* publish-for-arch
+* publish-release

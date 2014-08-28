@@ -28,6 +28,9 @@
 #
 # INSTALLATION:
 # See README.md
+#
+# VERSION:
+# For Meteor 0.9.0.1
 _meteor()
 {
     local cur prev opts base
@@ -37,10 +40,12 @@ _meteor()
 
     # basic meteor commands
     commands="help run create update add remove list bundle mongo reset deploy
-            logs authorized claim login logout whoami test-packages list-sites"
+            logs authorized claim login logout whoami test-packages list-sites
+            search show publish publish-for-arch publish-release"
     # help contents
     help_lookup="run create update add remove list bundle mongo reset deploy
-            logs authorized claim login logout whoami test-packages list-sites"
+            logs authorized claim login logout whoami test-packages list-sites
+            search show publish publish-for-arch publish-release"
 
     case "${prev}" in
         help )
@@ -94,6 +99,26 @@ _meteor()
             ;;
         bundle )
             COMPREPLY=( $(compgen -W "--debug --directory" -- "${cur}") )
+            return 0
+            ;;
+        search )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        show )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        publish-for-arch )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        publish-release )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        publish )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
             return 0
             ;;
     esac
