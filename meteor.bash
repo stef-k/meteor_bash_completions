@@ -76,7 +76,7 @@ _meteor()
             return 0
             ;;
         add )
-            pgs=$(meteor list)
+            pgs=$(meteor search "${cur}")
             COMPREPLY=( $(compgen -W "${pgs}" -- "${cur}") )
             return 0
             ;;
