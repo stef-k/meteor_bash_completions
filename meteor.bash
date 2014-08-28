@@ -81,12 +81,12 @@ _meteor()
             return 0
             ;;
         remove )
-            pgs=$(meteor list --using)
+            pgs=$(meteor list)
             COMPREPLY=( $(compgen -W "${pgs}" -- "${cur}") )
             return 0
             ;;
         list )
-            COMPREPLY=( $(compgen -W "--using" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
             return 0
             ;;
         mongo )
