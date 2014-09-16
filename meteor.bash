@@ -39,13 +39,15 @@ _meteor()
     prev="${COMP_WORDS[COMP_CWORD-1]}" # previous word
 
     # basic meteor commands
-    commands="help run create update add remove list bundle mongo reset deploy
-            logs authorized claim login logout whoami test-packages list-sites
-            search show publish publish-for-arch publish-release"
+    commands="help run create update add remove list add-platform remove-platform
+            list-platforms configure-android build mongo reset deploy logs
+            authorized claim login logout whoami test-packages list-sites
+            publish-release publish publish-for-arch search show"
     # help contents
-    help_lookup="run create update add remove list bundle mongo reset deploy
-            logs authorized claim login logout whoami test-packages list-sites
-            search show publish publish-for-arch publish-release"
+    help_lookup="run create update add remove list add-platform remove-platform
+            list-platforms configure-android build mongo reset deploy logs
+            authorized claim login logout whoami test-packages list-sites
+            publish-release publish publish-for-arch search show"
 
     case "${prev}" in
         help )
@@ -59,20 +61,12 @@ _meteor()
             return 0
             ;;
         create )
-            COMPREPLY=( $(compgen -W "--example --list" -- "${cur}") )
-            return 0
-            ;;
-        deploy )
-            COMPREPLY=( $(compgen -W "--delete --debug --settings
-                --star" -- "${cur}") )
-            return 0
-            ;;
-        logs )
-            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "--example --list --package" -- "${cur}") )
             return 0
             ;;
         update )
-            COMPREPLY=( $(compgen -W "--release" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "--release
+                --packages-only --patch" -- "${cur}") )
             return 0
             ;;
         add )
@@ -89,36 +83,92 @@ _meteor()
             COMPREPLY=( $(compgen -W "" -- "${cur}") )
             return 0
             ;;
+        add-platform )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        remove-platform )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        list-platforms )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        configure-android )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        build )
+            COMPREPLY=( $(compgen -W "--debug --directory
+                --settings" -- "${cur}") )
+            return 0
+            ;;
         mongo )
-            COMPREPLY=( $(compgen -W "--url" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "--url -U" -- "${cur}") )
             return 0
             ;;
         reset )
             COMPREPLY=( $(compgen -W "" -- "${cur}") )
             return 0
             ;;
-        bundle )
-            COMPREPLY=( $(compgen -W "--debug --directory" -- "${cur}") )
+        deploy )
+            COMPREPLY=( $(compgen -W "--delete -D --debug --settings
+                --star" -- "${cur}") )
             return 0
             ;;
-        search )
+        logs )
             COMPREPLY=( $(compgen -W "" -- "${cur}") )
             return 0
             ;;
-        show )
+        authorized )
+            COMPREPLY=( $(compgen -W "--list --add --remove" -- "${cur}") )
+            return 0
+            ;;
+        claim )
             COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        login )
+            COMPREPLY=( $(compgen -W "--email" -- "${cur}") )
+            return 0
+            ;;
+        logout )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        whoami )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        test-packages )
+            COMPREPLY=( $(compgen -W "--port -p --deploy --production
+                --settings --ios --android --ios-device --android-device
+                --verbose" -- "${cur}") )
+            return 0
+            ;;
+        list-sites )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
+        publish-release )
+            COMPREPLY=( $(compgen -W "--create-track" -- "${cur}") )
+            return 0
+            ;;
+        publish )
+            COMPREPLY=( $(compgen -W "--create" -- "${cur}") )
             return 0
             ;;
         publish-for-arch )
             COMPREPLY=( $(compgen -W "" -- "${cur}") )
             return 0
             ;;
-        publish-release )
-            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+        search )
+            COMPREPLY=( $(compgen -W "--maintainer --show-old" -- "${cur}") )
             return 0
             ;;
-        publish )
-            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+        show )
+            COMPREPLY=( $(compgen -W "--maintainer --show-old" -- "${cur}") )
             return 0
             ;;
     esac
