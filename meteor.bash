@@ -26,11 +26,16 @@
 # meteor [TAB]
 # meteor command [TAB]
 #
+# ATTENTION
+# Some completions are for options that must be placed at the end of the command
+# for example the build command:
+# Usage: meteor build <output path> [--debug] [--directory] [--settings settings.json]
+#
 # INSTALLATION:
 # See README.md
 #
 # VERSION:
-# For Meteor 0.9.0.1
+# For Meteor 0.9.2.1
 _meteor()
 {
     local cur prev opts base

@@ -7,7 +7,7 @@ This bash file provides bash completions for the meteor command line tool.
 
 ## Version:
 
-Updated for Meteor `0.9.0.1`
+Updated for Meteor `0.9.2.1`
 
 ## Usage:
 
@@ -19,6 +19,13 @@ $meteor [TAB]
 ```bash
 $meteor command [TAB]
 ```
+
+### Quirks
+Some completions are for options that **must be placed at the end of the command**
+for example the build command:
+
+```bashUsage: meteor build <output path> [--debug] [--directory] [--settings settings.json]```
+
 
 ### Package management
 
@@ -72,7 +79,11 @@ Additionaly on Ubuntu systems you can put this file at `/etc/bash_completion.d/`
 * add
 * remove
 * list
-* bundle
+* add-platform
+* remove-platform
+* list-platforms
+* configure-android
+* build
 * mongo
 * reset
 * deploy
@@ -84,8 +95,8 @@ Additionaly on Ubuntu systems you can put this file at `/etc/bash_completion.d/`
 * whoami
 * test-packages
 * list-sites
-* search
-* show
+* publish-release
 * publish
 * publish-for-arch
-* publish-release
+* search
+* show
