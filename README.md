@@ -25,7 +25,8 @@ Some completions are for options that **must be placed at the end of the command
 for example the build command:
 
 ```bash
-Usage: meteor build <output path> [--debug] [--directory] [--settings settings.json]```
+Usage: meteor build <output path> [--debug] [--directory] [--settings settings.json]
+```
 
 
 ### Package management
