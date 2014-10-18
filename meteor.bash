@@ -35,7 +35,7 @@
 # See README.md
 #
 # VERSION:
-# For Meteor 0.9.2.1
+# For Meteor 0.9.4
 _meteor()
 {
     local cur prev opts base
@@ -47,12 +47,14 @@ _meteor()
     commands="help run create update add remove list add-platform remove-platform
             list-platforms configure-android build mongo reset deploy logs
             authorized claim login logout whoami test-packages list-sites
-            publish-release publish publish-for-arch search show"
+            publish-release publish publish-for-arch search show
+            admin debug"
     # help contents
     help_lookup="run create update add remove list add-platform remove-platform
             list-platforms configure-android build mongo reset deploy logs
             authorized claim login logout whoami test-packages list-sites
-            publish-release publish publish-for-arch search show"
+            publish-release publish publish-for-arch search show
+            admin debug"
 
     case "${prev}" in
         help )
@@ -61,8 +63,12 @@ _meteor()
             return 0
             ;;
         run )
-            COMPREPLY=( $(compgen -W "--port --production --raw-logs --settings
-                --release --program" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "--port --production --mobile-server --raw-logs
+                --settings --release --program --test --debug-port" -- "${cur}") )
+            return 0
+            ;;
+        debug )
+            COMPREPLY=( $(compgen -W "--debug-port" -- "${cur}") )
             return 0
             ;;
         create )
@@ -174,6 +180,14 @@ _meteor()
             ;;
         show )
             COMPREPLY=( $(compgen -W "--maintainer --show-old" -- "${cur}") )
+            return 0
+            ;;
+        admin )
+            COMPREPLY=( $(compgen -W "set-unmigrated" -- "${cur}") )
+            return 0
+            ;;
+        set-unmigrated )
+            COMPREPLY=( $(compgen -W "--success" -- "${cur}") )
             return 0
             ;;
     esac
