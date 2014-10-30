@@ -194,10 +194,11 @@ _meteor()
             ;;
         install-sdk )
              COMPREPLY=( $(compgen -W "android ios" -- "${cur}") )
+             return 0
              ;;
     esac
 
-    COMPREPLY=($(compgen -W "${commands}" -- "${cur}"))
+    COMPREPLY=( $(compgen -W "${commands}" -- "${cur}") )
     return 0
 }
 
