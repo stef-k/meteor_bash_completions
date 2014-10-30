@@ -95,7 +95,7 @@ _meteor()
             return 0
             ;;
         add-platform )
-            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "server browser android ios" -- "${cur}") )
             return 0
             ;;
         remove-platform )
