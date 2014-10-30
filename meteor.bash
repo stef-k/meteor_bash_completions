@@ -63,7 +63,8 @@ _meteor()
             return 0
             ;;
         run )
-            COMPREPLY=( $(compgen -W "--port --production --mobile-server --raw-logs
+            COMPREPLY=( $(compgen -W "android  android-device ios ios-device
+                --port --production --mobile-server --raw-logs
                 --settings --release --program --test --debug-port" -- "${cur}") )
             return 0
             ;;
