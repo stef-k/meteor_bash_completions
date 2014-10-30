@@ -113,7 +113,7 @@ _meteor()
             ;;
         build )
             COMPREPLY=( $(compgen -W "--debug --directory
-                --settings" -- "${cur}") )
+                --mobile-settings --server" -- "${cur}") )
             return 0
             ;;
         mongo )
