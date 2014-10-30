@@ -48,13 +48,13 @@ _meteor()
             list-platforms configure-android build mongo reset deploy logs
             authorized claim login logout whoami test-packages list-sites
             publish-release publish publish-for-arch search show
-            admin debug"
+            admin debug install-sdk"
     # help contents
     help_lookup="run create update add remove list add-platform remove-platform
             list-platforms configure-android build mongo reset deploy logs
             authorized claim login logout whoami test-packages list-sites
             publish-release publish publish-for-arch search show
-            admin debug"
+            admin debug install-sdk"
 
     case "${prev}" in
         help )
@@ -183,13 +183,18 @@ _meteor()
             return 0
             ;;
         admin )
-            COMPREPLY=( $(compgen -W "set-unmigrated" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "set-unmigrated maintainers
+                recommend-release change-homepage list-organizations
+                members get-machine" -- "${cur}") )
             return 0
             ;;
         set-unmigrated )
             COMPREPLY=( $(compgen -W "--success" -- "${cur}") )
             return 0
             ;;
+        install-sdk )
+             COMPREPLY=( $(compgen -W "android ios" -- "${cur}") )
+             ;;
     esac
 
     COMPREPLY=($(compgen -W "${commands}" -- "${cur}"))
