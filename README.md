@@ -7,7 +7,7 @@ This bash file provides bash completions for the meteor command line tool.
 
 ## Version:
 
-Updated for Meteor `0.9.4`
+Updated for Meteor `1.0`
 
 ## Usage:
 
@@ -102,3 +102,5 @@ Additionaly on Ubuntu systems you can put this file at `/etc/bash_completion.d/`
 * publish-for-arch
 * search
 * show
+* admin
+* install-sdk
