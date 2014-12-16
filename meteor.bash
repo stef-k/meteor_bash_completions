@@ -42,6 +42,7 @@ _meteor()
     COMPREPLY=() # completion reply array
     cur="${COMP_WORDS[COMP_CWORD]}" # current word
     prev="${COMP_WORDS[COMP_CWORD-1]}" # previous word
+    cline="${COMP_LINE}"
 
     # basic meteor commands
     commands="help run create update add remove list add-platform remove-platform
@@ -154,9 +155,14 @@ _meteor()
             return 0
             ;;
         test-packages )
-            COMPREPLY=( $(compgen -W "--port -p --deploy --production
+            local args="--port -p --deploy --production
                 --settings --ios --android --ios-device --android-device
-                --verbose" -- "${cur}") )
+                --verbose"
+            if [[ ${cur} != -* ]]; then
+                COMPREPLY=($(compgen -W "{cur}")) compopt -o plusdirs
+            else
+                COMPREPLY=($(compgen -W "${args}" -- "${cur}") )
+            fi
             return 0
             ;;
         list-sites )
