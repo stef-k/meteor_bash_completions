@@ -49,13 +49,13 @@ _meteor()
             list-platforms configure-android build mongo reset deploy logs
             authorized claim login logout whoami test-packages list-sites
             publish-release publish publish-for-arch search show
-            admin debug install-sdk"
+            admin debug install-sdk shell"
     # help contents
     help_lookup="run create update add remove list add-platform remove-platform
             list-platforms configure-android build mongo reset deploy logs
             authorized claim login logout whoami test-packages list-sites
             publish-release publish publish-for-arch search show
-            admin debug install-sdk"
+            admin debug install-sdk shell"
 
     case "${prev}" in
         help )
@@ -203,6 +203,10 @@ _meteor()
              COMPREPLY=( $(compgen -W "android ios" -- "${cur}") )
              return 0
              ;;
+        shell )
+            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            return 0
+            ;;
     esac
 
     COMPREPLY=( $(compgen -W "${commands}" -- "${cur}") )
