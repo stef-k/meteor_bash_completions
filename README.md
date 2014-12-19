@@ -7,9 +7,11 @@ This bash file provides bash completions for the meteor command line tool.
 
 ## Version:
 
-Updated for Meteor `1.0`
+Updated for Meteor `1.0.2`
 
 ## Usage:
+
+For some commands the completion provides two options, an example is the 'test-packages' command, typing `meteor test-packages [TAB]`, the completion will provide directory options like the default terminal completion, `meteor test-packages -` will provide completions for the `test-packages` command (`--port --verbose`, etc)
 
 ```bash
 $meteor [TAB]
@@ -18,6 +20,11 @@ $meteor [TAB]
 
 ```bash
 $meteor command [TAB]
+```
+**OR**
+
+```bash
+$meteor command - [TAB]
 ```
 
 ### Quirks
@@ -104,3 +111,4 @@ Additionaly on Ubuntu systems you can put this file at `/etc/bash_completion.d/`
 * show
 * admin
 * install-sdk
+* shell
