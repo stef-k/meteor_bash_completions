@@ -7,7 +7,7 @@ This bash file provides bash completions for the meteor command line tool.
 
 ## Version:
 
-Updated for Meteor `1.0.2`
+Updated for `Meteor 1.0.3.1`
 
 ## Usage:
 

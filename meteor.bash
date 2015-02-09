@@ -66,7 +66,7 @@ _meteor()
         run )
             COMPREPLY=( $(compgen -W "android  android-device ios ios-device
                 --port --production --mobile-server --raw-logs
-                --settings --release --program --test --debug-port" -- "${cur}") )
+                --settings --release --verbose --test --debug-port" -- "${cur}") )
             return 0
             ;;
         debug )
@@ -101,7 +101,7 @@ _meteor()
             return 0
             ;;
         remove-platform )
-            COMPREPLY=( $(compgen -W "" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "android ios" -- "${cur}") )
             return 0
             ;;
         list-platforms )
@@ -113,7 +113,7 @@ _meteor()
             return 0
             ;;
         build )
-            COMPREPLY=( $(compgen -W "--debug --directory
+            COMPREPLY=( $(compgen -W "--debug --directory --architecture
                 --mobile-settings --server" -- "${cur}") )
             return 0
             ;;
@@ -155,9 +155,9 @@ _meteor()
             return 0
             ;;
         test-packages )
-            local args="--port -p --deploy --production
-                --settings --ios --android --ios-device --android-device
-                --verbose"
+            local args="--port -p --debug-port --mobile-server --deploy
+                --production --velocity --settings --ios --android --ios-device
+                --android-device --verbose --test-app-path"
             if [[ ${cur} != -* ]]; then
                 COMPREPLY=($(compgen -W "{cur}")) compopt -o plusdirs
             else
@@ -174,7 +174,7 @@ _meteor()
             return 0
             ;;
         publish )
-            COMPREPLY=( $(compgen -W "--create" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "--create --update" -- "${cur}") )
             return 0
             ;;
         publish-for-arch )
@@ -182,11 +182,11 @@ _meteor()
             return 0
             ;;
         search )
-            COMPREPLY=( $(compgen -W "--maintainer --show-old" -- "${cur}") )
+            COMPREPLY=( $(compgen -W "--maintainer --show-old --ejson" -- "${cur}") )
             return 0
             ;;
         show )
-            COMPREPLY=( $(compgen -W "--maintainer --show-old" -- "${cur}") )
+            COMPREPLY=( $(compgen -W " --show-all --ejson" -- "${cur}") )
             return 0
             ;;
         admin )
