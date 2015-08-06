@@ -35,7 +35,7 @@
 # See README.md
 #
 # VERSION:
-# For Meteor 1.0
+# For Meteor 1.1.0.3
 _meteor()
 {
     local cur prev opts base
